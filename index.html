@@ -56,14 +56,6 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <style>
-      html {
-        font-size: 90%; /* Escala todo o visual diminuindo em 10%, simulando o zoom de 90% do navegador */
-      }
-      @media (max-width: 768px) {
-        html {
-          font-size: 100%; /* No celular mantemos o tamanho original para os textos não ficarem minúsculos */
-        }
-      }
       body {
         background-color: theme("colors.bglight");
         color: theme("colors.dark");
@@ -190,9 +182,20 @@
           >
         </div>
 
-        <button class="lg:hidden text-primary text-2xl focus:outline-none">
+        <button id="mobile-menu-button" class="lg:hidden text-primary text-2xl focus:outline-none">
           <i class="fas fa-bars"></i>
         </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="lg:hidden hidden bg-bglight/95 backdrop-blur-md border-t border-primary/10 absolute top-full left-0 w-full shadow-lg">
+        <div class="flex flex-col px-6 py-4 space-y-4 text-sm font-medium text-primary tracking-widest uppercase">
+          <a href="#inicio" class="mobile-link py-2 border-b border-primary/5">Início</a>
+          <a href="#abordagem" class="mobile-link py-2 border-b border-primary/5">Abordagem</a>
+          <a href="#atendimentos" class="mobile-link py-2 border-b border-primary/5">Atendimentos</a>
+          <a href="#sobre" class="mobile-link py-2 border-b border-primary/5">Sobre</a>
+          <a href="https://wa.me/5554999114730?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão" target="_blank" class="py-2 text-primary font-bold">Agendar</a>
+        </div>
       </div>
     </nav>
 
@@ -794,6 +797,33 @@
           nav.classList.remove("shadow-md");
           nav.classList.replace("py-2", "py-3");
         }
+      });
+
+      // Mobile Menu Toggle
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        const icon = mobileMenuButton.querySelector('i');
+        if (mobileMenu.classList.contains('hidden')) {
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars');
+        } else {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-xmark');
+        }
+      });
+
+      // Close mobile menu when a link is clicked
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          const icon = mobileMenuButton.querySelector('i');
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars');
+        });
       });
     </script>
   </body>
