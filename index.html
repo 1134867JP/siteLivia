@@ -50,6 +50,14 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
+    html {
+          font-size: 90%; /* Escala todo o visual diminuindo em 10%, simulando o zoom de 90% do navegador */
+        }
+        @media (max-width: 768px) {
+          html {
+              font-size: 100%; /* No celular mantemos o tamanho original para os textos não ficarem minúsculos */
+          }
+        }
         body { background-color: theme('colors.bglight'); color: theme('colors.dark'); overflow-x: hidden; }
         .glass-nav {
             background: rgba(252, 251, 249, 0.7);
