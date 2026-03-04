@@ -25,6 +25,8 @@
             animation: {
               float: "float 6s ease-in-out infinite",
               blob: "blob 7s infinite",
+              morph: "morph 12s ease-in-out infinite",
+              pulseSlow: "pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite",
             },
             keyframes: {
               float: {
@@ -36,6 +38,16 @@
                 "33%": { transform: "translate(30px, -50px) scale(1.1)" },
                 "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
                 "100%": { transform: "translate(0px, 0px) scale(1)" },
+              },
+              morph: {
+                "0%, 100%": {
+                  borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
+                  transform: "scale(1)",
+                },
+                "50%": {
+                  borderRadius: "30% 60% 70% 40% / 50% 60% 30% 60%",
+                  transform: "scale(1.05)",
+                },
               },
             },
           },
@@ -56,7 +68,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <style>
-      html, body {
+      html,
+      body {
         overflow-x: hidden;
         width: 100%;
         position: relative;
@@ -64,6 +77,12 @@
       body {
         background-color: theme("colors.bglight");
         color: theme("colors.dark");
+      }
+      .animation-delay-2000 {
+        animation-delay: 2s;
+      }
+      .animation-delay-4000 {
+        animation-delay: 4s;
       }
       .glass-nav {
         background: rgba(252, 251, 249, 0.7);
@@ -186,19 +205,44 @@
           >
         </div>
 
-        <button id="mobile-menu-button" class="lg:hidden text-primary text-2xl focus:outline-none">
+        <button
+          id="mobile-menu-button"
+          class="lg:hidden text-primary text-2xl focus:outline-none"
+        >
           <i class="fas fa-bars"></i>
         </button>
       </div>
 
       <!-- Mobile Menu -->
-      <div id="mobile-menu" class="lg:hidden hidden bg-bglight/95 backdrop-blur-md border-t border-primary/10 absolute top-full left-0 w-full shadow-lg">
-        <div class="flex flex-col px-6 py-4 space-y-4 text-sm font-medium text-primary tracking-widest uppercase">
-          <a href="#inicio" class="mobile-link py-2 border-b border-primary/5">Início</a>
-          <a href="#abordagem" class="mobile-link py-2 border-b border-primary/5">Abordagem</a>
-          <a href="#atendimentos" class="mobile-link py-2 border-b border-primary/5">Atendimentos</a>
-          <a href="#sobre" class="mobile-link py-2 border-b border-primary/5">Sobre</a>
-          <a href="https://wa.me/5554999114730?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão" target="_blank" class="py-2 text-primary font-bold">Agendar</a>
+      <div
+        id="mobile-menu"
+        class="lg:hidden hidden bg-bglight/95 backdrop-blur-md border-t border-primary/10 absolute top-full left-0 w-full shadow-lg"
+      >
+        <div
+          class="flex flex-col px-6 py-4 space-y-4 text-sm font-medium text-primary tracking-widest uppercase"
+        >
+          <a href="#inicio" class="mobile-link py-2 border-b border-primary/5"
+            >Início</a
+          >
+          <a
+            href="#abordagem"
+            class="mobile-link py-2 border-b border-primary/5"
+            >Abordagem</a
+          >
+          <a
+            href="#atendimentos"
+            class="mobile-link py-2 border-b border-primary/5"
+            >Atendimentos</a
+          >
+          <a href="#sobre" class="mobile-link py-2 border-b border-primary/5"
+            >Sobre</a
+          >
+          <a
+            href="https://wa.me/5554999114730?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão"
+            target="_blank"
+            class="py-2 text-primary font-bold"
+            >Agendar</a
+          >
         </div>
       </div>
     </nav>
@@ -252,8 +296,9 @@
             <p
               class="text-lg text-gray-600 mb-10 leading-relaxed font-light max-w-xl"
             >
-              Atendimento para crianças, adolescentes, adultos e idosos. Um espaço acolhedor dedicado 
-              ao seu autoconhecimento, desenvolvimento pessoal e bem-estar emocional.
+              Atendimento para crianças, adolescentes, adultos e idosos. Um
+              espaço acolhedor dedicado ao seu autoconhecimento, desenvolvimento
+              pessoal e bem-estar emocional.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
@@ -346,22 +391,22 @@
     </header>
 
     <!-- DIVIDER STRIP -->
-    <div class="bg-primary py-8 overflow-hidden relative">
+    <div class="bg-primary/5 border-y border-primary/10 py-6 overflow-hidden relative">
       <div class="container mx-auto px-6">
         <div
-          class="flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 md:gap-0 text-secondary/70 font-display text-xl md:text-2xl italic text-center"
+          class="flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 md:gap-0 text-primary font-display text-lg md:text-xl italic text-center tracking-wide"
         >
           <span data-aos="fade-up" data-aos-delay="0"
             >Orientação Analítica</span
           >
           <span
-            class="w-2 h-2 rounded-full bg-secondary/50 hidden md:block"
+            class="w-1.5 h-1.5 rounded-full bg-primary/30 hidden md:block"
           ></span>
           <span data-aos="fade-up" data-aos-delay="100"
             >Atenção Oncológica</span
           >
           <span
-            class="w-2 h-2 rounded-full bg-secondary/50 hidden md:block"
+            class="w-1.5 h-1.5 rounded-full bg-primary/30 hidden md:block"
           ></span>
           <span data-aos="fade-up" data-aos-delay="200" class="hidden md:block"
             >Acolhimento Integral</span
@@ -371,8 +416,86 @@
     </div>
 
     <!-- ABORDAGEM / BENEFÍCIOS -->
-    <section id="abordagem" class="py-24 md:py-32 bg-white relative">
-      <div class="container mx-auto px-6 md:px-12">
+    <section
+      id="abordagem"
+      class="py-24 md:py-32 bg-white relative overflow-hidden"
+    >
+      <!-- Animação Abstrata Moderna: Fios de Pensamento / Desatar de Nós e Partículas -->
+      <div
+        class="absolute inset-0 pointer-events-none z-0 overflow-hidden mix-blend-multiply"
+      >
+        <!-- Fios fluidos - Lado Esquerdo -->
+        <div
+          class="absolute top-0 -left-40 md:-left-64 w-[600px] h-[600px] md:w-[800px] md:h-[800px] opacity-[0.25]"
+        >
+          <div
+            class="absolute inset-0 border-[1px] border-primary rounded-[40%_60%_70%_30%] animate-[spin_30s_linear_infinite]"
+          ></div>
+          <div
+            class="absolute inset-4 border-[2px] border-secondary rounded-[60%_40%_30%_70%] animate-[spin_25s_linear_infinite_reverse]"
+          ></div>
+          <div
+            class="absolute inset-8 border-[1px] border-primary/60 rounded-[50%_50%_60%_40%] animate-[spin_35s_linear_infinite]"
+          ></div>
+          <div
+            class="absolute inset-16 border-[1px] border-[#d4c1b3] rounded-[70%_50%_40%_60%] animate-[spin_40s_linear_infinite_reverse]"
+          ></div>
+        </div>
+
+        <!-- Fios fluidos - Lado Direito -->
+        <div
+          class="absolute -bottom-20 -right-40 md:-right-64 w-[700px] h-[700px] md:w-[900px] md:h-[900px] opacity-[0.25]"
+        >
+          <div
+            class="absolute inset-0 border-[1px] border-secondary rounded-[30%_70%_70%_30%] animate-[spin_40s_linear_infinite]"
+          ></div>
+          <div
+            class="absolute inset-6 border-[2px] border-primary rounded-[70%_30%_50%_50%] animate-[spin_30s_linear_infinite_reverse]"
+          ></div>
+          <div
+            class="absolute inset-12 border-[1px] border-dark/30 rounded-[40%_60%_40%_60%] animate-[spin_45s_linear_infinite]"
+          ></div>
+          <div
+            class="absolute inset-20 border-[1px] border-[#e8cbae] rounded-[60%_30%_70%_40%] animate-[spin_50s_linear_infinite_reverse]"
+          ></div>
+        </div>
+
+        <!-- Fios fluidos - Centralizado Fundo -->
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] opacity-[0.1] blur-[1px]"
+        >
+          <div
+            class="absolute inset-0 border-[1px] border-primary rounded-[50%_50%_50%_50%] animate-[spin_60s_linear_infinite]"
+          ></div>
+          <div
+            class="absolute inset-20 border-[1px] border-secondary rounded-[30%_70%_50%_50%] animate-[spin_55s_linear_infinite_reverse]"
+          ></div>
+        </div>
+
+        <!-- Partículas "Pensamentos soltos" -->
+        <div
+          class="absolute top-[20%] left-[30%] w-3 h-3 bg-primary/40 rounded-full blur-[1px] animate-float"
+        ></div>
+        <div
+          class="absolute bottom-[20%] left-[20%] w-5 h-5 bg-secondary/60 rounded-full blur-[2px] animate-float animation-delay-2000"
+        ></div>
+        <div
+          class="absolute top-[40%] right-[25%] w-4 h-4 bg-primary/30 rounded-full blur-[1px] animate-float animation-delay-4000"
+        ></div>
+        <div
+          class="absolute bottom-[30%] right-[15%] w-6 h-6 bg-[#d4c1b3]/40 rounded-full blur-[2px] animate-float"
+        ></div>
+
+        <!-- Formas Geométricas Transparentes -->
+        <div
+          class="absolute top-32 right-32 w-32 h-32 border border-primary/20 rounded-full animate-pulseSlow"
+        ></div>
+        <div
+          class="absolute bottom-32 left-40 w-48 h-48 border border-secondary/20 rounded-full animate-morph"
+        ></div>
+      </div>
+
+      <div class="container mx-auto px-6 md:px-12 relative z-10">
         <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
           <span
             class="text-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4 block"
@@ -393,22 +516,24 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Card 1 -->
           <div
-            class="group p-10 bg-bglight rounded-[2rem] hover:bg-primary transition-all duration-500 border border-secondary/30 hover:border-transparent hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2"
+            class="group relative p-10 bg-white/40 backdrop-blur-md rounded-[2rem] hover:bg-white transition-all duration-500 border border-primary/10 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-2 overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="100"
           >
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+            
             <div
-              class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-primary text-2xl mb-8 group-hover:scale-110 transition-transform duration-500"
+              class="w-14 h-14 rounded-2xl bg-bglight border border-primary/10 flex items-center justify-center text-primary text-2xl mb-8 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500"
             >
               <i class="fa-solid fa-ear-listen"></i>
             </div>
             <h3
-              class="font-display text-2xl font-bold text-dark mb-4 group-hover:text-white transition-colors duration-500"
+              class="font-display text-2xl font-bold text-dark mb-4 group-hover:text-primary transition-colors duration-500"
             >
               Escuta Atenta
             </h3>
             <p
-              class="text-gray-600 font-light leading-relaxed group-hover:text-white/80 transition-colors duration-500"
+              class="text-gray-600 font-light leading-relaxed"
             >
               Um espaço de fala livre e acolhimento sem julgamentos para
               entender as origens das suas angústias e conflitos.
@@ -417,22 +542,24 @@
 
           <!-- Card 2 -->
           <div
-            class="group p-10 bg-bglight rounded-[2rem] hover:bg-primary transition-all duration-500 border border-secondary/30 hover:border-transparent hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2"
+            class="group relative p-10 bg-white/40 backdrop-blur-md rounded-[2rem] hover:bg-white transition-all duration-500 border border-primary/10 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-2 overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="200"
           >
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+
             <div
-              class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-primary text-2xl mb-8 group-hover:scale-110 transition-transform duration-500"
+              class="w-14 h-14 rounded-2xl bg-bglight border border-primary/10 flex items-center justify-center text-primary text-2xl mb-8 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500"
             >
               <i class="fa-solid fa-ribbon"></i>
             </div>
             <h3
-              class="font-display text-2xl font-bold text-dark mb-4 group-hover:text-white transition-colors duration-500"
+              class="font-display text-2xl font-bold text-dark mb-4 group-hover:text-primary transition-colors duration-500"
             >
               Apoio em Saúde
             </h3>
             <p
-              class="text-gray-600 font-light leading-relaxed group-hover:text-white/80 transition-colors duration-500"
+              class="text-gray-600 font-light leading-relaxed"
             >
               Suporte emocional especializado para pacientes oncológicos,
               familiares e pessoas lidando com processos de adoecimento e luto.
@@ -441,22 +568,24 @@
 
           <!-- Card 3 -->
           <div
-            class="group p-10 bg-bglight rounded-[2rem] hover:bg-primary transition-all duration-500 border border-secondary/30 hover:border-transparent hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2"
+             class="group relative p-10 bg-white/40 backdrop-blur-md rounded-[2rem] hover:bg-white transition-all duration-500 border border-primary/10 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-2 overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="300"
           >
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+
             <div
-              class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-primary text-2xl mb-8 group-hover:scale-110 transition-transform duration-500"
+              class="w-14 h-14 rounded-2xl bg-bglight border border-primary/10 flex items-center justify-center text-primary text-2xl mb-8 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500"
             >
               <i class="fa-solid fa-arrows-spin"></i>
             </div>
             <h3
-              class="font-display text-2xl font-bold text-dark mb-4 group-hover:text-white transition-colors duration-500"
+              class="font-display text-2xl font-bold text-dark mb-4 group-hover:text-primary transition-colors duration-500"
             >
               Ressignificação
             </h3>
             <p
-              class="text-gray-600 font-light leading-relaxed group-hover:text-white/80 transition-colors duration-500"
+              class="text-gray-600 font-light leading-relaxed"
             >
               Ferramentas reflexivas para elaborar padrões repetitivos e
               encontrar novas formas e sentidos para encarar a própria história.
@@ -471,9 +600,46 @@
       id="atendimentos"
       class="bg-dark text-white relative overflow-hidden"
     >
+      <!-- Animação Abstrata Dark: Fios, Pulsos e Partículas Luminosas -->
       <div
-        class="absolute right-0 top-0 w-1/2 h-full bg-primary/20 skew-x-12 transform origin-top hidden lg:block"
-      ></div>
+        class="absolute inset-0 pointer-events-none z-0 overflow-hidden mix-blend-screen"
+      >
+        <!-- Fundo enviesado com animação de opacidade lenta -->
+        <div
+          class="absolute right-0 top-0 w-1/2 h-full bg-primary/20 skew-x-12 transform origin-top hidden lg:block animate-pulseSlow"
+        ></div>
+
+        <!-- Fios fluidos suaves (tema escuro) -->
+        <div
+          class="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] opacity-20"
+        >
+          <div
+            class="absolute inset-0 border border-secondary/30 rounded-[50%_40%_60%_40%] animate-[spin_60s_linear_infinite]"
+          ></div>
+          <div
+            class="absolute inset-10 border border-primary/40 rounded-[40%_60%_50%_50%] animate-[spin_50s_linear_infinite_reverse]"
+          ></div>
+          <div
+            class="absolute inset-20 border border-white/10 rounded-[60%_50%_40%_60%] animate-[spin_70s_linear_infinite]"
+          ></div>
+        </div>
+
+        <!-- Brilhos (Glows automáticos) -->
+        <div
+          class="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] animate-pulseSlow"
+        ></div>
+
+        <!-- Partículas de luz flutuantes (estrelas) -->
+        <div
+          class="absolute top-[20%] left-[10%] w-1.5 h-1.5 bg-secondary rounded-full shadow-[0_0_10px_rgba(208,195,180,0.8)] animate-float"
+        ></div>
+        <div
+          class="absolute bottom-[30%] right-[40%] w-1 h-1 bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.6)] animate-float animation-delay-2000"
+        ></div>
+        <div
+          class="absolute top-[60%] right-[10%] w-2 h-2 bg-primary rounded-full shadow-[0_0_12px_rgba(113,100,82,0.8)] animate-float animation-delay-4000"
+        ></div>
+      </div>
 
       <div class="container mx-auto flex flex-col lg:flex-row relative z-10">
         <!-- Left Info -->
@@ -585,8 +751,49 @@
     </section>
 
     <!-- SOBRE A PROFISSIONAL -->
-    <section id="sobre" class="py-24 md:py-32 bg-bglight relative">
-      <div class="container mx-auto px-6 md:px-12">
+    <section
+      id="sobre"
+      class="py-24 md:py-32 bg-bglight relative overflow-hidden"
+    >
+      <!-- Animações de fundo claras (Orgânicas e Geométricas) -->
+      <div class="absolute inset-0 pointer-events-none z-0">
+        <!-- Manchas de luz colorida rodando sutilmente -->
+        <div
+          class="absolute -top-32 right-[-100px] w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[80px] animate-blob"
+        ></div>
+        <div
+          class="absolute -bottom-32 -left-32 w-[600px] h-[600px] bg-[#e8cbae]/10 rounded-full blur-[100px] animate-blob animation-delay-4000"
+        ></div>
+
+        <!-- Padrão de pontinhos e linhas orbitando -->
+        <div class="absolute top-[20%] right-[10%] opacity-10 animate-float">
+          <div class="grid grid-cols-4 gap-3">
+            <!-- 16 bolinhas compondo uma grade flutuante -->
+            <div class="w-1.5 h-1.5 bg-dark rounded-full"></div>
+            <div class="w-1.5 h-1.5 bg-dark rounded-full"></div>
+            <div class="w-1.5 h-1.5 bg-dark rounded-full"></div>
+            <div class="w-1.5 h-1.5 bg-dark rounded-full"></div>
+            <div class="w-1.5 h-1.5 bg-dark rounded-full"></div>
+            <div class="w-1.5 h-1.5 bg-dark rounded-full"></div>
+            <div class="w-1.5 h-1.5 bg-dark rounded-full"></div>
+            <div class="w-1.5 h-1.5 bg-dark rounded-full"></div>
+            <div class="w-1.5 h-1.5 bg-dark rounded-full"></div>
+            <div class="w-1.5 h-1.5 bg-dark rounded-full"></div>
+            <div class="w-1.5 h-1.5 bg-dark rounded-full"></div>
+            <div class="w-1.5 h-1.5 bg-dark rounded-full"></div>
+            <div class="w-1.5 h-1.5 bg-dark rounded-full"></div>
+            <div class="w-1.5 h-1.5 bg-dark rounded-full"></div>
+            <div class="w-1.5 h-1.5 bg-dark rounded-full"></div>
+            <div class="w-1.5 h-1.5 bg-dark rounded-full"></div>
+          </div>
+        </div>
+
+        <div
+          class="absolute bottom-[40%] left-[5%] w-32 h-32 border-2 border-primary/5 rounded-full animate-morph"
+        ></div>
+      </div>
+
+      <div class="container mx-auto px-6 md:px-12 relative z-10">
         <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           <div class="w-full lg:w-5/12 relative" data-aos="fade-right">
             <div
@@ -596,14 +803,14 @@
               class="absolute -bottom-10 -right-10 w-full h-full bg-secondary/30 rounded-3xl z-0 hidden md:block"
             ></div>
 
-            <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
+            <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl group">
               <img
                 src="livia2.jpeg"
                 alt="Livia Maria Vecchi - Psicóloga"
-                class="w-full object-cover aspect-[3/4]"
+                class="w-full object-cover aspect-[3/4] filter grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-105"
               />
               <div
-                class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-dark/90 to-transparent text-white"
+                class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-dark/90 to-transparent text-white opacity-90 group-hover:opacity-100 transition-opacity duration-500"
               >
                 <p class="font-display font-bold text-2xl">
                   Livia Maria Vecchi
@@ -646,9 +853,9 @@
                 Sou também <strong>Especialista em Atenção ao Câncer</strong>,
                 formada por Programa de Residência Multiprofissional. Essa
                 vivência me conferiu ampla bagagem no acompanhamento de
-                pacientes e familiares oncológicos, oferecendo suporte emocional diante do
-                impacto do diagnóstico, dos tratamentos intensivos, luto e
-                cuidados paliativos.
+                pacientes e familiares oncológicos, oferecendo suporte emocional
+                diante do impacto do diagnóstico, dos tratamentos intensivos,
+                luto e cuidados paliativos.
               </p>
               <p>
                 Seja de forma presencial em Passo Fundo ou no formato online, o
@@ -804,29 +1011,29 @@
       });
 
       // Mobile Menu Toggle
-      const mobileMenuButton = document.getElementById('mobile-menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const mobileLinks = document.querySelectorAll('.mobile-link');
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileLinks = document.querySelectorAll(".mobile-link");
 
-      mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        const icon = mobileMenuButton.querySelector('i');
-        if (mobileMenu.classList.contains('hidden')) {
-          icon.classList.remove('fa-xmark');
-          icon.classList.add('fa-bars');
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        const icon = mobileMenuButton.querySelector("i");
+        if (mobileMenu.classList.contains("hidden")) {
+          icon.classList.remove("fa-xmark");
+          icon.classList.add("fa-bars");
         } else {
-          icon.classList.remove('fa-bars');
-          icon.classList.add('fa-xmark');
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-xmark");
         }
       });
 
       // Close mobile menu when a link is clicked
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-          const icon = mobileMenuButton.querySelector('i');
-          icon.classList.remove('fa-xmark');
-          icon.classList.add('fa-bars');
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          const icon = mobileMenuButton.querySelector("i");
+          icon.classList.remove("fa-xmark");
+          icon.classList.add("fa-bars");
         });
       });
     </script>
