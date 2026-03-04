@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livia Maria Vecchi | Psicóloga Clínica</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#716452',
+                        primaryHover: '#5a4f40',
+                        secondary: '#d0c3b4',
+                        secondaryLight: '#e8e2db',
+                        dark: '#2c2721',
+                        bglight: '#fcfbf9'
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        display: ['"Playfair Display"', 'serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body { background-color: theme('colors.bglight'); color: theme('colors.dark'); overflow-x: hidden; }
+        .glass-nav {
+            background: rgba(252, 251, 249, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(113, 100, 82, 0.1);
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #d0c3b4; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #716452; }
+
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(90deg, #716452, #a39581);
+        }
+
+        .bg-mesh {
+            background-color: #fcfbf9;
+            background-image: radial-gradient(at 0% 0%, hsla(33, 25%, 85%, 0.4) 0px, transparent 50%),
+                              radial-gradient(at 100% 0%, hsla(33, 20%, 90%, 0.4) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, hsla(33, 15%, 80%, 0.4) 0px, transparent 50%),
+                              radial-gradient(at 0% 100%, hsla(33, 15%, 85%, 0.4) 0px, transparent 50%);
+        }
+
+        .btn-hover-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-hover-effect::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .btn-hover-effect:hover::after {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-bglight text-dark">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300 py-3">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3">
+                <img src="logo.png" alt="Logo Livia Maria Vecchi" class="h-12 w-auto object-contain rounded-md mix-blend-multiply">
+            </a>
+
+            <div class="hidden lg:flex space-x-10 items-center text-[13px] font-medium text-primary tracking-widest uppercase">
+                <a href="#inicio" class="relative group">
+                    Início
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#abordagem" class="relative group">
+                    Abordagem
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#atendimentos" class="relative group">
+                    Atendimentos
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#sobre" class="relative group">
+                    Sobre
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="https://wa.me/5554999114730?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão" target="_blank" class="btn-hover-effect px-6 py-2.5 bg-primary text-white hover:bg-primaryHover transition-colors rounded-full shadow-lg shadow-primary/20">Agendar</a>
+            </div>
+
+            <button class="lg:hidden text-primary text-2xl focus:outline-none"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="inicio" class="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden bg-mesh">
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-secondary rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-[#e8cbae] rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-[#d4c1b3] rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob animation-delay-4000"></div>
+
+        <div class="container mx-auto px-6 md:px-12 relative z-10 pt-10 lg:pt-0">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+
+                <!-- Text Content -->
+                <div class="w-full lg:w-1/2 flex flex-col items-center text-center lg:items-start lg:text-left order-2 lg:order-1" data-aos="fade-up" data-aos-duration="1200">
+                    
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 border border-primary/20 backdrop-blur-sm mb-6 shadow-sm mt-4 lg:mt-0">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        <span class="text-xs font-semibold text-primary uppercase tracking-widest">Atendimento Online & Passo Fundo</span>
+                    </div>
+
+                    <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] mb-4 text-dark">
+                        Acolhimento e <br />
+                        <span class="text-gradient italic">escuta profunda</span>.
+                    </h1>
+
+                    <h2 class="text-xl md:text-2xl text-primary font-display mb-6">
+                        Psicoterapia de Orientação Analítica
+                    </h2>
+
+                    <p class="text-lg text-gray-600 mb-10 leading-relaxed font-light max-w-xl">
+                        Especialista em Atenção ao Câncer. Um espaço seguro para elaborar o sofrimento, ressignificar a dor e promover seu bem-estar emocional.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
+                        <a href="https://wa.me/5554999114730?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão" target="_blank" class="btn-hover-effect flex items-center justify-center gap-3 px-8 py-4 bg-primary text-white text-sm font-semibold tracking-widest uppercase rounded-full shadow-xl shadow-primary/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                            Agendar Sessão <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image Content (Nome para telas menores movido para dentro do Text Content) -->
+                <div class="w-full lg:w-1/2 order-1 lg:order-2 flex flex-col items-center lg:justify-end relative" data-aos="zoom-in-up" data-aos-duration="1500">
+
+                    <div class="relative w-full max-w-[480px] aspect-[4/5] animate-float mt-8 md:mt-0">
+                        <!-- Nome Flutuante (Aparece em todas as telas, sobreposto no topo da imagem) -->
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20 bg-white/90 backdrop-blur-md shadow-xl px-5 py-2.5 rounded-full border border-primary/20 flex items-center gap-2 w-max text-sm lg:text-base">
+                            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                            <span class="font-display font-bold text-dark text-[15px] tracking-wide">Lívia Maria Vecchi</span>
+                            <span class="w-px h-3 bg-gray-300"></span>
+                            <span class="text-[9px] uppercase font-bold tracking-widest text-primary">Psicóloga</span>
+                        </div>
+
+                        <div class="absolute inset-0 bg-secondary/40 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] shadow-2xl transform rotate-6 scale-105 transition-transform duration-700 hover:rotate-12"></div>
+                        <div class="absolute inset-0 bg-secondaryLight rounded-[40%_60%_70%_30%/40%_50%_60%_50%] overflow-hidden shadow-inner border-4 border-white">
+                            <img src="livia.jpeg" alt="Livia Maria Vecchi" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700">
+                        </div>
+
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4" data-aos="fade-right" data-aos-delay="600">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary text-xl">
+                                <i class="fa-solid fa-ribbon"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase font-semibold">Especialista</p>
+                                <p class="font-display font-bold text-sm text-dark">Atenção ao Câncer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:flex flex-col items-center animate-bounce">
+            <span class="text-[10px] uppercase tracking-[0.3em] text-primary/60 mb-2 font-semibold">Rolar</span>
+            <div class="w-[1px] h-8 bg-gradient-to-b from-primary to-transparent"></div>
+        </div>
+    </header>
+
+    <!-- DIVIDER STRIP -->
+    <div class="bg-primary py-8 overflow-hidden relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 md:gap-0 text-secondary/70 font-display text-xl md:text-2xl italic text-center">
+                <span data-aos="fade-up" data-aos-delay="0">Orientação Analítica</span>
+                <span class="w-2 h-2 rounded-full bg-secondary/50 hidden md:block"></span>
+                <span data-aos="fade-up" data-aos-delay="100">Atenção Oncológica</span>
+                <span class="w-2 h-2 rounded-full bg-secondary/50 hidden md:block"></span>
+                <span data-aos="fade-up" data-aos-delay="200" class="hidden md:block">Acolhimento Integral</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABORDAGEM / BENEFÍCIOS -->
+    <section id="abordagem" class="py-24 md:py-32 bg-white relative">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <span class="text-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">A Abordagem</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-dark mb-6">Psicoterapia de Orientação Analítica</h2>
+                <div class="w-16 h-1 bg-secondary mx-auto mb-6 rounded-full"></div>
+                <p class="text-gray-600 font-light leading-relaxed text-lg">Um processo profundo de autoconhecimento focado na compreensão do seu mundo interno, de suas relações e da raiz de seus sofrimentos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group p-10 bg-bglight rounded-[2rem] hover:bg-primary transition-all duration-500 border border-secondary/30 hover:border-transparent hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-primary text-2xl mb-8 group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-ear-listen"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-dark mb-4 group-hover:text-white transition-colors duration-500">Escuta Atenta</h3>
+                    <p class="text-gray-600 font-light leading-relaxed group-hover:text-white/80 transition-colors duration-500">Um espaço de fala livre e acolhimento sem julgamentos para entender as origens das suas angústias e conflitos.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group p-10 bg-bglight rounded-[2rem] hover:bg-primary transition-all duration-500 border border-secondary/30 hover:border-transparent hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-primary text-2xl mb-8 group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-ribbon"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-dark mb-4 group-hover:text-white transition-colors duration-500">Apoio em Saúde</h3>
+                    <p class="text-gray-600 font-light leading-relaxed group-hover:text-white/80 transition-colors duration-500">Suporte emocional especializado para pacientes oncológicos, familiares e pessoas lidando com processos de adoecimento e luto.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group p-10 bg-bglight rounded-[2rem] hover:bg-primary transition-all duration-500 border border-secondary/30 hover:border-transparent hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-primary text-2xl mb-8 group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-arrows-spin"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-dark mb-4 group-hover:text-white transition-colors duration-500">Ressignificação</h3>
+                    <p class="text-gray-600 font-light leading-relaxed group-hover:text-white/80 transition-colors duration-500">Ferramentas reflexivas para elaborar padrões repetitivos e encontrar novas formas e sentidos para encarar a própria história.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ATENDIMENTOS -->
+    <section id="atendimentos" class="bg-dark text-white relative overflow-hidden">
+        <div class="absolute right-0 top-0 w-1/2 h-full bg-primary/20 skew-x-12 transform origin-top hidden lg:block"></div>
+
+        <div class="container mx-auto flex flex-col lg:flex-row relative z-10">
+            <!-- Left Info -->
+            <div class="w-full lg:w-1/2 py-20 px-6 lg:py-32 lg:pr-20" data-aos="fade-right">
+                <span class="text-secondary text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">Modalidades</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-8">Atendimento flexível <br/>para sua rotina.</h2>
+                <p class="text-gray-400 font-light text-lg mb-12 max-w-lg">Onde quer que você esteja, a terapia pode ser acessível. Escolha o formato que melhor se adapta à sua vida.</p>
+
+                <div class="space-y-8">
+                    <!-- Presencial Passo Fundo -->
+                    <div class="flex gap-6 items-start group">
+                        <div class="w-16 h-16 shrink-0 rounded-full bg-primary/30 flex items-center justify-center text-secondary text-2xl group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-display text-2xl font-bold mb-2 text-secondary">Passo Fundo, RS</h4>
+                            <p class="text-gray-400 font-light leading-relaxed">Atendimento presencial em um ambiente seguro e estruturado, ideal para a imersão que a terapia analítica proporciona.</p>
+                        </div>
+                    </div>
+
+                    <div class="w-full h-px bg-white/10"></div>
+
+                    <!-- Online -->
+                    <div class="flex gap-6 items-start group">
+                        <div class="w-16 h-16 shrink-0 rounded-full bg-primary/30 flex items-center justify-center text-secondary text-2xl group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-display text-2xl font-bold mb-2 text-secondary">Atendimento Online</h4>
+                            <p class="text-gray-400 font-light leading-relaxed">Para pacientes de qualquer lugar do Brasil. Realizado por videochamada, mantendo o mesmo rigor clínico, escuta e sigilo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right CTA -->
+            <div class="w-full lg:w-1/2 py-20 px-6 lg:py-32 lg:pl-20 flex flex-col justify-center bg-primary/10 lg:bg-transparent backdrop-blur-sm" data-aos="fade-left" data-aos-delay="200">
+                <div class="bg-white/5 border border-white/10 p-10 md:p-12 rounded-[2rem] backdrop-blur-md relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/20 rounded-bl-full blur-2xl"></div>
+
+                    <h3 class="font-display text-3xl font-bold text-white mb-4">Agende seu horário</h3>
+                    <p class="text-gray-300 font-light mb-10">Dê o primeiro passo rumo ao autocuidado. Entre em contato para consultar valores e disponibilidade.</p>
+
+                    <a href="https://wa.me/5554999114730?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão" target="_blank" class="group relative flex items-center justify-between p-6 bg-white rounded-2xl hover:bg-secondaryLight transition-colors duration-300 mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white text-xl shadow-lg shadow-green-500/30 group-hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div class="text-left">
+                                <span class="block text-dark font-bold text-lg">WhatsApp</span>
+                                <span class="block text-gray-500 text-sm">Resposta rápida</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-primary group-hover:translate-x-2 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE A PROFISSIONAL -->
+    <section id="sobre" class="py-24 md:py-32 bg-bglight relative">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+
+                <div class="w-full lg:w-5/12 relative" data-aos="fade-right">
+                    <div class="absolute -top-10 -left-10 w-full h-full border-2 border-primary/20 rounded-3xl z-0 hidden md:block"></div>
+                    <div class="absolute -bottom-10 -right-10 w-full h-full bg-secondary/30 rounded-3xl z-0 hidden md:block"></div>
+
+                    <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="livia2.jpeg" alt="Livia Maria Vecchi - Psicóloga" class="w-full object-cover aspect-[3/4]">
+                        <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-dark/90 to-transparent text-white">
+                            <p class="font-display font-bold text-2xl">Livia Maria Vecchi</p>
+                            <p class="text-secondary text-sm tracking-widest uppercase mt-1">CRP 07/40170</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-7/12" data-aos="fade-left">
+                    <div class="mb-8">
+                        <img src="logo.png" alt="Logo Livia" class="h-20 mix-blend-multiply opacity-80">
+                    </div>
+
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-dark mb-6">Escuta e <span class="text-primary italic">humanização</span>.</h2>
+
+                    <div class="space-y-6 text-gray-600 font-light text-lg leading-relaxed">
+                        <p>
+                            Como Psicóloga Clínica, atuo na abordagem de <strong>Psicoterapia de Orientação Analítica</strong>, propiciando um ambiente onde a palavra e a escuta são os instrumentos principais para acessar conflitos internos e sofrimentos.
+                        </p>
+                        <p>
+                            Sou também <strong>Especialista em Atenção ao Câncer</strong>, formada por Programa de Residência Multiprofissional. Essa vivência me conferiu ampla bagagem no acompanhamento de pacientes oncológicos, oferecendo suporte emocional diante do impacto do diagnóstico, dos tratamentos intensivos, luto e cuidados paliativos.
+                        </p>
+                        <p>
+                            Seja de forma presencial em Passo Fundo ou no formato online, o foco do meu trabalho é a pessoa em sua totalidade, respeitando o tempo e a singularidade de cada um.
+                        </p>
+                    </div>
+
+                    <div class="mt-12 flex items-center gap-6">
+                        <div class="text-center">
+                            <span class="block font-display text-4xl font-bold text-primary">07</span>
+                            <span class="block text-xs uppercase tracking-widest text-gray-500 mt-1">Região</span>
+                        </div>
+                        <div class="w-px h-12 bg-secondary"></div>
+                        <div class="text-center">
+                            <span class="block font-display text-4xl font-bold text-primary">40170</span>
+                            <span class="block text-xs uppercase tracking-widest text-gray-500 mt-1">Registro CRP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER MODERN -->
+    <footer class="bg-dark pt-20 pb-10 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-full max-w-lg h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand Info -->
+                <div class="lg:col-span-2">
+                    <img src="logo.png" alt="Logo Livia" class="h-16 mb-6 brightness-0 invert opacity-90">
+                    <p class="text-gray-400 font-light text-sm max-w-sm leading-relaxed mb-6">
+                        Psicoterapia de Orientação Analítica e Atenção Oncológica. Atendimento presencial em Passo Fundo e Online para todo o Brasil.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/liviavecchi_/" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-primary hover:-translate-y-1 transition-all"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/5554999114730?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-primary hover:-translate-y-1 transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-display font-bold text-lg mb-6">Navegação</h4>
+                    <ul class="space-y-4 text-sm text-gray-400 font-light">
+                        <li><a href="#inicio" class="hover:text-secondary transition-colors">Início</a></li>
+                        <li><a href="#abordagem" class="hover:text-secondary transition-colors">A Abordagem</a></li>
+                        <li><a href="#atendimentos" class="hover:text-secondary transition-colors">Modalidades</a></li>
+                        <li><a href="#sobre" class="hover:text-secondary transition-colors">Sobre a Livia</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contato -->
+                <div>
+                    <h4 class="text-white font-display font-bold text-lg mb-6">Contato</h4>
+                    <ul class="space-y-4 text-sm text-gray-400 font-light">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-primary"></i>
+                            <span>Passo Fundo, RS<br/>Atendimento Online</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-id-card text-primary"></i>
+                            <span>CRP 07/40170</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-gray-500 font-light">
+                    © 2026 Livia Maria Vecchi. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ 
+            once: true, 
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+                nav.classList.replace('py-3', 'py-2');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.replace('py-2', 'py-3');
+            }
+        });
+    </script>
+</body>
+</html>
